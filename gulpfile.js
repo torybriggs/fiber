@@ -13,8 +13,8 @@ var replace = require('gulp-replace');
 var watch = require('gulp-watch');
 
 var config = {
-    scssPath: './source/scss',
-    imgPath: './source/img'
+    scssPath: './src/scss',
+    imgPath: './src/img'
 }
 
 var onError = function (err) {  
@@ -43,12 +43,12 @@ gulp.task('csscompile', function() {
     }))
     .pipe(compass({
       project: path.join(__dirname, '/'),
-      css: 'public/css',
-      sass: 'source/scss'
+      css: 'dist/css',
+      sass: 'src/scss'
     }))
     .pipe(autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'))
     .pipe(minifycss())
-    .pipe(gulp.dest('public/css'));
+    .pipe(gulp.dest('dist/css'));
 });
  
 gulp.task('imagemin', function () {
@@ -56,13 +56,13 @@ gulp.task('imagemin', function () {
         .pipe(plumber({
           errorHandler: onError
         }))
-        .pipe(newer('public/img'))
+        .pipe(newer('dist/img'))
        .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
-        .pipe(gulp.dest('public/img'));
+        .pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('clean', function(cb) {
-    del(['public/css/**/'], cb)
+    del(['dist/css/**/'], cb)
 });
 
 gulp.task('cachebust', function() {
