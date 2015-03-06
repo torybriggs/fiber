@@ -2,7 +2,7 @@
 *.ds_store
 
 ### Sass ###
-.sass-cache
+*.sass-cache
 *.css.map
 
 ### Node ###
