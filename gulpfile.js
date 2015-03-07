@@ -4,6 +4,9 @@ var plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync', 'run-sequence'] 
 });
 
+// BrowserSync Reload
+require('./tasks/reload')(gulp, plugins);
+
 // File Cleanup
 require('./tasks/clean')(gulp, plugins);
 
