@@ -1,16 +1,8 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var path = require('path');
-var plumber = require('gulp-plumber');
-var compass = require('gulp-compass');
-var autoprefixer = require('gulp-autoprefixer');
-var minifycss = require('gulp-minify-css');
-var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');
-var newer = require('gulp-newer');
-var del = require('del');
-var replace = require('gulp-replace');
-var watch = require('gulp-watch');
+var plugins = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'gulp.*', 'del'] 
+});
 
 var config = {
     scssPath: './src/scss',
@@ -23,65 +15,22 @@ var onError = function (err) {
   this.emit('end');
 };
 
-var getStamp = function() {
-    var myDate = new Date();
+//File Cleanup
+require('./tasks/clean')(gulp, plugins);
 
-    var myYear = myDate.getFullYear().toString();
-    var myMonth = ('0' + (myDate.getMonth() + 1)).slice(-2);
-    var myDay = ('0' + myDate.getDate()).slice(-2);
-    var mySeconds = myDate.getSeconds().toString();
+ //SASS Compilation
+require('./tasks/csscompile')(gulp, plugins, config, onError);
 
-    var myFullDate = myYear + myMonth + myDay + mySeconds;
+//Image Minifications
+require('./tasks/imagemin')(gulp, plugins, config, onError);
 
-    return myFullDate;
-};
- 
-gulp.task('csscompile', function() {
-  return gulp.src(config.scssPath + '/main.scss')
-  .pipe(plumber({
-      errorHandler: onError
-    }))
-    .pipe(compass({
-      project: path.join(__dirname, '/'),
-      css: 'dist/css',
-      sass: 'src/scss'
-    }))
-    .pipe(autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'))
-    .pipe(minifycss())
-    .pipe(gulp.dest('dist/css'));
-});
- 
-gulp.task('imagemin', function () {
-    return gulp.src(config.imgPath + '/**/*')
-        .pipe(plumber({
-          errorHandler: onError
-        }))
-        .pipe(newer('dist/img'))
-       .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
-        .pipe(gulp.dest('dist/img'));
-});
+//Cachebust CSS
+require('./tasks/cachebust')(gulp, plugins, onError);
 
-gulp.task('clean', function(cb) {
-    del(['dist/css/**/'], cb)
-});
+//Watch For Changes
+require('./tasks/watch')(gulp, plugins, config);
 
-gulp.task('cachebust', function() {
-    return gulp.src('index.html')
-        .pipe(plumber({
-          errorHandler: onError
-        }))
-       .pipe(replace(/main\.?([0-9]*)\.css/g, 'main.' + getStamp() + '.css'))
-        .pipe(gulp.dest(''))
-});
-
-gulp.task('watch', function () {
-    watch(config.scssPath + '/**/*.scss', function () {
-        gulp.start('clean','csscompile', 'cachebust')});
-    watch(config.imgPath + '/**/*', function () {
-        gulp.start('imagemin');
-    });
-});
-
+//Default Task Triggers Watch
 gulp.task('default', function() {
     gulp.start('watch');
 });
