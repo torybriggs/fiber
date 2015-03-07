@@ -7,9 +7,9 @@ module.exports = function(gulp, plugins, config) {
         });
 
         plugins.watch(config.scssPath + '/**/*.scss', function () {
-            gulp.start('clean','csscompile', 'cachebust');
+            gulp.start('css-build');
         });
-        
+
         plugins.watch(config.imgPath + '/**/*', function () {
             gulp.start('imagemin');
         });

@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var config = require('./config.json');
 var plugins = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync'] 
+  pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync', 'run-sequence'] 
 });
 
 // File Cleanup
@@ -19,8 +19,14 @@ require('./tasks/imagemin')(gulp, plugins, config);
 // Cachebust CSS
 require('./tasks/cachebust')(gulp, plugins);
 
+// Sourcemap Reference
+require('./tasks/mapReference')(gulp, plugins);
+
 // Basic Server
 require('./tasks/browserSync')(gulp, plugins);
+
+// CSS Build
+require('./tasks/cssBuild')(gulp, plugins);
 
 // Watch For Changes
 require('./tasks/watch')(gulp, plugins, config);
