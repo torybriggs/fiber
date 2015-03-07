@@ -8,7 +8,9 @@ module.exports = function (gulp, plugins, config) {
           }))
         .pipe(plugins.compass({
           css: './dist/css',
-          sass: './src/scss'
+          sass: config.scssPath,
+          image: config.imgPath,
+          sourcemap: true
         }))
         .pipe(plugins.autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1'))
         .pipe(plugins.minifyCss())
