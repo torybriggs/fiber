@@ -1,31 +1,20 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var config = require('./config.json');
 var plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*', 'del'] 
 });
-
-var config = {
-    scssPath: './src/scss',
-    imgPath: './src/img'
-}
-
-var onError = function (err) {  
-  gutil.beep();
-  console.log(err);
-  this.emit('end');
-};
 
 //File Cleanup
 require('./tasks/clean')(gulp, plugins);
 
  //SASS Compilation
-require('./tasks/csscompile')(gulp, plugins, config, onError);
+require('./tasks/csscompile')(gulp, plugins, config);
 
 //Image Minifications
-require('./tasks/imagemin')(gulp, plugins, config, onError);
+require('./tasks/imagemin')(gulp, plugins, config);
 
 //Cachebust CSS
-require('./tasks/cachebust')(gulp, plugins, onError);
+require('./tasks/cachebust')(gulp, plugins);
 
 //Watch For Changes
 require('./tasks/watch')(gulp, plugins, config);

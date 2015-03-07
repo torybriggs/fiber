@@ -13,13 +13,13 @@ var getStamp = function() {
 
 // Insert timestamp into CSS reference
 
-module.exports = function(gulp, plugins, onError) {
+module.exports = function(gulp, plugins) {
 
     gulp.task('cachebust', function() {
 
         return gulp.src('index.html')
             .pipe(plugins.plumber({
-              errorHandler: onError
+              errorHandler: plugins.notify.onError("ERROR: Cachebusting Regex Failed")
             }))
            .pipe(plugins.replace(/main\.?([0-9]*)\.css/g, 'main.' + getStamp() + '.css'))
             .pipe(gulp.dest(''))
