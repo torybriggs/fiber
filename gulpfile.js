@@ -10,6 +10,9 @@ require('./tasks/clean')(gulp, plugins);
  //SASS Compilation
 require('./tasks/csscompile')(gulp, plugins, config);
 
+ //JS Minification
+require('./tasks/uglify')(gulp, plugins, config);
+
 //Image Minifications
 require('./tasks/imagemin')(gulp, plugins, config);
 

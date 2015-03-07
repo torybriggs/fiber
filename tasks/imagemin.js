@@ -7,7 +7,7 @@ module.exports = function(gulp, plugins, config) {
               errorHandler: plugins.notify.onError("ERROR: Image Minification Failed")
             }))
             .pipe(plugins.newer('dist/img'))
-           .pipe(plugins.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+            .pipe(plugins.imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
             .pipe(gulp.dest('dist/img'));
 
     });

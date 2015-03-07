@@ -1,4 +1,5 @@
 {
         "scssPath": "./src/scss",
+        "jsPath": "./src/js",
         "imgPath": "./src/img"
 }
