@@ -6,4 +6,8 @@
 
     htmlElement.className = htmlElement.className.replace(/\bno-js\b/,'') + 'js';
 
+    var example = require('./plugin');
+
+    example('Hello World');
+
 })();

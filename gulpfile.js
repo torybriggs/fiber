@@ -1,7 +1,8 @@
 var gulp = require('gulp');
 var config = require('./config.json');
+
 var plugins = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync', 'run-sequence'] 
+  pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync', 'run-sequence', 'browserify', 'vinyl-source-stream'] 
 });
 
 // BrowserSync Reload
@@ -13,8 +14,8 @@ require('./tasks/clean')(gulp, plugins);
  // SASS Compilation
 require('./tasks/csscompile')(gulp, plugins, config);
 
- // JS Minification
-require('./tasks/uglify')(gulp, plugins, config);
+ // JS Bundling
+require('./tasks/browserify')(gulp, plugins);
 
 // Image Minifications
 require('./tasks/imagemin')(gulp, plugins, config);

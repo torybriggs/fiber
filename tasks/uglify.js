@@ -1,12 +1,11 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function(gulp, plugins, config, browserify, source) {
   
-    return gulp.task('uglify', function() {
-        gulp.src(config.jsPath + '/*.js')
-            .pipe(plugins.plumber({
-                  errorHandler: plugins.notify.onError("ERROR: JS Minification Failed")
-            }))
+    gulp.task('browserify', function() {
+        return browserify('./src/javascript/main.js')
+            .bundle()
+            .pipe(source('bundle.js'))
             .pipe(plugins.uglify())
-            .pipe(gulp.dest('./dist/js/'))
+            .pipe(gulp.dest('./dist/js/'));
     });
 
 };

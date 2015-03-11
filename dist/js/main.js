@@ -1,1 +1,0 @@
-!function(){"use strict";var e=(document.querySelector.bind(document),document.querySelector("html"));e.className=e.className.replace(/\bno-js\b/,"")+"js"}();
