@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var config = require('./config.json');
 
 var plugins = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'gulp.*', 'del', 'browser-sync', 'run-sequence', 'browserify', 'vinyl-source-stream'] 
+  pattern: ['*'] 
 });
 
 // BrowserSync Reload
@@ -15,7 +15,7 @@ require('./tasks/clean')(gulp, plugins);
 require('./tasks/csscompile')(gulp, plugins, config);
 
  // JS Bundling
-require('./tasks/browserify')(gulp, plugins);
+require('./tasks/browserify')(gulp, plugins, config);
 
 // Image Minifications
 require('./tasks/imagemin')(gulp, plugins, config);
