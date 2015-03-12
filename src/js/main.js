@@ -1,4 +1,5 @@
 (function() {
+
     'use strict';
     
     var $ = require('jquery');
@@ -9,6 +10,6 @@
 
     htmlElement.className = htmlElement.className.replace(/\bno-js\b/,'') + 'js';
 
-    example('Hello World');
+    example('Hello Brian');
 
 })();

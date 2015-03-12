@@ -2,7 +2,7 @@ module.exports = function(gulp, plugins, config) {
 
     gulp.task('watch', function () {
 
-        plugins.watch(config.jsPath + '/**/*.js', function () {
+        plugins.watch(config.jsSrcPath + '/**/*.js', function () {
             gulp.start('js-build');
         });
 

@@ -8,8 +8,11 @@ var plugins = require('gulp-load-plugins')({
 // BrowserSync Reload
 require('./tasks/reload')(gulp, plugins);
 
-// File Cleanup
-require('./tasks/clean')(gulp, plugins);
+// File Cleanup CSS
+require('./tasks/cleanCss')(gulp, plugins, config);
+
+// File Cleanup JS
+require('./tasks/cleanJs')(gulp, plugins, config);
 
  // SASS Compilation
 require('./tasks/csscompile')(gulp, plugins, config);
