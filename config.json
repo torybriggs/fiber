@@ -1,5 +1,8 @@
 {
-        "scssPath": "./src/scss",
-        "jsPath": "./src/js",
-        "imgPath": "./src/img"
-}
+        "scssSrcPath": "./src/scss",
+        "jsSrcPath": "./src/js",
+        "imgSrcPath": "./src/img",
+        "cssDistPath": "./dist/css",
+        "jsDistPath": "./dist/js",
+        "imgDistPath": "./dist/img"
+}   
