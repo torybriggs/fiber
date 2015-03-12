@@ -3,7 +3,7 @@ module.exports = function(gulp, plugins, config) {
     gulp.task('watch', function () {
 
         plugins.watch(config.jsPath + '/**/*.js', function () {
-            gulp.start('browserify');
+            gulp.start('js-build');
         });
 
         plugins.watch(config.scssPath + '/**/*.scss', function () {

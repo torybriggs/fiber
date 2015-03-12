@@ -32,6 +32,9 @@ require('./tasks/browserSync')(gulp, plugins);
 // CSS Build
 require('./tasks/cssBuild')(gulp, plugins);
 
+// CSS Build
+require('./tasks/jsBuild')(gulp, plugins);
+
 // Watch For Changes
 require('./tasks/watch')(gulp, plugins, config);
 
