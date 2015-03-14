@@ -2,9 +2,21 @@
   "name": "Fiber",
   "version": "0.1.0",
   "main": "gulpfile.js",
+  "browser": {
+    "modernizr": "./src/js/libs/modernizr.js"
+  },
+   "browserify": {
+     "transform": [
+         "browserify-shim"
+     ]
+ },
+ "browserify-shim": {
+     "modernizr": "Modernizr"
+ },
   "devDependencies": {
     "browser-sync": "^2.2.2",
     "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.3",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",

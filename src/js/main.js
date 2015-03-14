@@ -3,6 +3,7 @@
     'use strict';
     
     var $ = require('jquery');
+    var Modernizr = require('modernizr');
     var example = require('./plugin');
 
     var querySelector = document.querySelector.bind(document);
