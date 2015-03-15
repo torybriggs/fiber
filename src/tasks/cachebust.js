@@ -17,7 +17,7 @@ module.exports = function(gulp, plugins) {
             return myFullDate;
         };
 
-        return gulp.src('index.html')
+        return gulp.src('./dist/index.html')
             .pipe(plugins.plumber({
               errorHandler: plugins.notify.onError("ERROR: Cachebusting Regex Failed")
             }))

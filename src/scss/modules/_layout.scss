@@ -1,7 +1,7 @@
 /***** Grid System Variables *****/
 
 $baseWidth: 100%;
-$baseColumns: 24;
+$baseColumns: 12;
 $baseColumnWidth: ( 100% / $baseColumns );
 $baseGutterWidth: 20px;
 $outsideGutters: true;
@@ -65,27 +65,48 @@ img, picture {
 // Base Column Style
 
 [class*="column-"] {
+    float: left;
     padding: 0 ( $baseGutterWidth / 2 );
 }
 
-@include media(cinema) {
+// Phones (viewport widths smaller than 768px)
 
-    @for $i from 1 through $baseColumns {
+@for $i from 1 through $baseColumns  {
 
-        .column-#{$i} {
-            width: ( $baseColumnWidth * $i);
+    .column-#{$i} {
+        width: ( $baseColumnWidth * $i) ;
+    }
+
+    .prepend-#{$i} {
+        margin-left: ( $baseColumnWidth * $i);
+    }
+
+    .append-#{$i} {
+        margin-right: ( $baseColumnWidth * $i );
+    }
+}
+
+// Tablet Displays (viewport widths larger than 768px)
+
+@include media(tablet)  {
+
+    @for $i from 1 through $baseColumns  {
+
+        .tablet-column-#{$i} {
+            width: ( $baseColumnWidth * $i) ;
         }
 
-        .prepend-#{$i} {
-            margin-left: ( $baseColumnWidth * $i );
+        .tablet-prepend-#{$i} {
+            margin-left: ( $baseColumnWidth * $i);
         }
 
-        .append-#{$i} {
+        .tablet-append-#{$i} {
             margin-right: ( $baseColumnWidth * $i );
         }
     }
 }
 
+// Desktop Displays (viewport widths larger than 992px)
 
 @include media(desktop)  {
 
@@ -105,44 +126,22 @@ img, picture {
     }
 }
 
-// Large Displays (viewport widths larger than 1440px)
+// Large Desktop Displays (viewport widths larger than 1220px)
 
-@include media(tablet)  {
+@include media(large-desktop) {
 
-    @for $i from 1 through $baseColumns / 2 {
+    @for $i from 1 through $baseColumns {
 
-        .tablet-column-#{$i} {
-            width: ( $baseColumnWidth * 2 * $i) ;
+        .large-desktop-column-#{$i} {
+            width: ( $baseColumnWidth * $i);
         }
 
-        // Large Prepend/Append Classes
-
-        .tablet-prepend-#{$i} {
-            margin-left: ( $baseColumnWidth * 2  * $i);
+        .large-desktop-prepend-#{$i} {
+            margin-left: ( $baseColumnWidth * $i );
         }
 
-        .tablet-append-#{$i} {
-            margin-right: ( $baseColumnWidth * 2 * $i );
-        }
-    }
-}
-
-@include media(phone) {
-
-    @for $i from 1 through $baseColumns / 4 {
-
-        .phone-column-#{$i} {
-            width: ( $baseColumnWidth * 4 * $i) ;
-        }
-
-        // Large Prepend/Append Classes
-
-        .phone-prepend-#{$i} {
-            margin-left: ( $baseColumnWidth * 4  * $i);
-        }
-
-        .phone-append-#{$i} {
-            margin-right: ( $baseColumnWidth * 4 * $i );
+        .large-desktop-append-#{$i} {
+            margin-right: ( $baseColumnWidth * $i );
         }
     }
 }

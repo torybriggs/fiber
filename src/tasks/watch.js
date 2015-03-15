@@ -14,6 +14,10 @@ module.exports = function(gulp, plugins, config) {
             gulp.start('imagemin');
         });
 
+        plugins.watch('./src/*.html', function () {
+            gulp.start('move-files');
+        });
+
     });
 
 };

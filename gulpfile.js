@@ -38,6 +38,9 @@ require('./src/tasks/cssBuild')(gulp, plugins);
 // CSS Build
 require('./src/tasks/jsBuild')(gulp, plugins);
 
+// Move Files
+require('./src/tasks/moveFiles')(gulp, plugins);
+
 // Watch For Changes
 require('./src/tasks/watch')(gulp, plugins, config);
 
