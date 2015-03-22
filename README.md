@@ -1,9 +1,7 @@
 #fiber
-___
 fiber is a website project scaffolding designed to help you get your web project instantly up and running with the latest workflow technologies. 
 
 ##Installation
-___
 * Get the latest release by:
     * Cloning the repo `https://github.com/bhough/fiber.git` -or-
     * [Downloading the zip File](https://github.com/bhough/fiber/archive/master.zip)
@@ -16,7 +14,6 @@ ___
 * Run `gulp` from the project root
 
 ##What's included
-___
 fiber uses the popular Javascript-based streaming build system [Gulp](http://gulpjs.com/) to automate your workflow. Common tasks are included to handle all the basics needs of web project development.
 
 ###BrowserSync
@@ -42,7 +39,6 @@ Included is a base HTML template that utlizes best practices for mobile renderin
 * Project and formatting configurations for [SublimeText](http://www.sublimetext.com/) or any editor that supports [EditorConfig](http://editorconfig.org/)
 
 ##The Basics
-___
 Once you get everything up and running, your project `src` folder will look something like this:
 
 ```
@@ -58,7 +54,7 @@ fiber/
 │   │   └── modules
 │   ├── tasks/
 │   ├── index.html
-        └── 404.html
+    └── 404.html
 ```
 
 
