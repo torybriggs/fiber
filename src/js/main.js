@@ -11,6 +11,6 @@
 
     htmlElement.className = htmlElement.className.replace(/\bno-js\b/,'') + 'js';
 
-    example('Hello Brian');
+    example('Hello World');
 
 })();
