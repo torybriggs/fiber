@@ -21,8 +21,8 @@ module.exports = function(gulp, plugins) {
             .pipe(plugins.plumber({
               errorHandler: plugins.notify.onError("ERROR: Cachebusting Regex Failed")
             }))
-           .pipe(plugins.replace(/main\.?([0-9]*)\.css/g, 'main.' + getStamp() + '.css'))
-            .pipe(gulp.dest(''))
+           .pipe(plugins.replace(/main\.css/g, 'main.' + getStamp() + '.css'))
+            .pipe(gulp.dest('./dist'))
 
         });
 
