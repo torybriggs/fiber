@@ -17,7 +17,7 @@ fiber is a website project scaffolding designed to help you get your web project
 fiber uses the popular Javascript-based streaming build system [Gulp](http://gulpjs.com/) to automate your workflow. Common tasks are included to handle all the basics needs of web project development.
 
 ###BrowserSync
-fiber leverages [BrowserSync](http://www.browsersync.io/) providing you with an easy way to run your project locally. Upon first running fiber, a new browser window will be launched that will reload with your latest ch anges whenever you update the code base.
+fiber leverages [BrowserSync](http://www.browsersync.io/) providing you with an easy way to run your project locally. Upon first running fiber, a new browser window will be launched that will reload with your latest changes whenever you update the code base.
 
 ###SASS & Compass
 CSS in fiber is written using SASS and Compass. fiber automatically compiles into minified CSS complete with sourcemap support. Using AutoPrefixer and Modernizr, fiber makes sure you have all your supported browsers covered.
